@@ -182,7 +182,14 @@ kiro-api-proxy/
 
 ## Disclaimer
 
-This project is for educational and research purposes only. Please comply with Kiro's Terms of Service.
+This project is provided for **educational and research purposes only**.
+
+- This software is not affiliated with, endorsed by, or associated with Amazon, AWS, or Kiro in any way
+- Users are solely responsible for ensuring their use complies with all applicable terms of service and laws
+- The authors assume no liability for any misuse or violations arising from the use of this software
+- Use at your own risk
+
+By using this software, you acknowledge that you have read and understood this disclaimer.
 
 ## License
 
