@@ -16,7 +16,7 @@
 - 🔐 **自动刷新 Token** - 无缝 Token 管理
 - 📡 **流式响应** - 实时 SSE 输出
 - 🎛️ **Web 管理面板** - 便捷的账号管理
-- 🔑 **多种认证方式** - IAM SSO、SSO Token、凭证导入
+- 🔑 **多种认证方式** - AWS Builder ID、IAM Identity Center (企业 SSO)、SSO Token、本地缓存、凭证 JSON
 - 📊 **用量追踪** - 监控请求数、Token、Credits
 
 ## 快速开始
@@ -91,13 +91,15 @@ go build -o kiro-go .
 
 ### 2. 添加账号
 
-支持三种方式：
+支持多种方式：
 
 | 方式 | 说明 |
 |------|------|
-| **IAM SSO** | 企业用户，输入 SSO Start URL |
-| **SSO Token** | 从浏览器导入 `x-amz-sso_authn` |
-| **凭证导入** | 从 Kiro Account Manager 导入 JSON |
+| **AWS Builder ID** | 通过 AWS Builder ID 授权登录（个人账号） |
+| **IAM Identity Center (企业 SSO) 登录** | 通过 IAM Identity Center (企业 SSO) 授权登录（企业账号） |
+| **SSO Token** | 通过浏览器 `x-amz-sso_authn` Token 添加账号 |
+| **Kiro 本地缓存** | 通过 Kiro IDE 本地缓存文件添加账号 |
+| **凭证 JSON** | 通过 Kiro Account Manager 导出的凭证添加账号 |
 
 #### 凭证格式
 
@@ -172,6 +174,7 @@ Kiro-Go/
 │   ├── kiro_api.go      # Kiro REST API（用量、模型）
 │   └── translator.go    # 请求/响应转换
 ├── auth/                # 认证
+│   ├── builderid.go     # AWS Builder ID 登录
 │   ├── iam_sso.go       # IAM SSO 登录
 │   ├── oidc.go          # OIDC Token 刷新
 │   └── sso_token.go     # SSO Token 导入

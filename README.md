@@ -16,7 +16,7 @@ Convert Kiro accounts to OpenAI / Anthropic compatible API service.
 - 🔐 **Auto Token Refresh** - Seamless token management
 - 📡 **Streaming** - Real-time SSE responses
 - 🎛️ **Web Admin Panel** - Easy account management
-- 🔑 **Multiple Auth Methods** - IAM SSO, SSO Token, Credentials import
+- 🔑 **Multiple Auth Methods** - AWS Builder ID, IAM Identity Center (Enterprise SSO), SSO Token, Local Cache, Credentials
 - 📊 **Usage Tracking** - Monitor requests, tokens, and credits
 
 ## Quick Start
@@ -91,13 +91,15 @@ Open `http://localhost:8080/admin` and login with your password.
 
 ### 2. Add Accounts
 
-Three methods available:
+Multiple methods available:
 
 | Method | Description |
 |--------|-------------|
-| **IAM SSO** | For enterprise users with SSO Start URL |
-| **SSO Token** | Import `x-amz-sso_authn` from browser |
-| **Credentials** | Import JSON from Kiro Account Manager |
+| **AWS Builder ID** | Login with AWS Builder ID (personal accounts) |
+| **IAM Identity Center (Enterprise SSO)** | Login with IAM Identity Center (enterprise accounts) |
+| **SSO Token** | Import `x-amz-sso_authn` token from browser |
+| **Kiro Local Cache** | Import from local Kiro IDE cache files |
+| **Credentials JSON** | Import JSON from Kiro Account Manager |
 
 #### Credentials Format
 
@@ -172,6 +174,7 @@ Kiro-Go/
 │   ├── kiro_api.go      # Kiro REST API (usage, models)
 │   └── translator.go    # Request/response conversion
 ├── auth/                # Authentication
+│   ├── builderid.go     # AWS Builder ID login
 │   ├── iam_sso.go       # IAM SSO login
 │   ├── oidc.go          # OIDC token refresh
 │   └── sso_token.go     # SSO token import
